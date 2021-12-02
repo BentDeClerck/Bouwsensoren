@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+search 
+<h1>{{value}}</h1>
+Alles moet in cijfers!
+<br>
+<form action="{{ url_for("years") }}" method="POST">
+    <label for="day">Day:</label>
+    <br>
+    <input type="text" id="day", name="day">
+    <br>
+    <label for="month">Month:</label>
+    <br>
+    <input type="text" id="month", name="month">
+    <br>
+    <label for="year">Year:</label>
+    <br>
+    <input type="text" id="year", name="year">
+    <br>
+
+    <input type="submit" value="Search For Graph">
+
+</form>
+<!--
+<table>
+    <tr>
+        <th>
+        Januari
+            <td>
+                dag 1
+            </td>
+        </th>
+
+    </tr>
+
+    <tr>
+        <th>
+        Februari
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Maart
+        </th>
+    </tr>
+    <tr>
+        <th>
+        April
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Mei
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Juni
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Juli
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+        Augustus
+        </th>
+    </tr>
+    <tr>
+        <th>
+        September
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Oktober
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+        November
+        </th>
+    </tr>
+    <tr>
+        <th>
+        December
+        </th>
+    </tr>
+
+</table>
+-->
+{% endblock %}
