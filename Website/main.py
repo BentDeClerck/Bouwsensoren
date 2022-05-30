@@ -3,16 +3,17 @@ from flask import Flask, render_template, request, redirect, request
 from flask.helpers import url_for
 import tabulate
 import openfile
-
+import json
 
 app = Flask(__name__)
 
-
+# Home Page
 @app.route('/')
 def main():
     return render_template('index.html')
 
-@app.route('/search', methods = ["GET", "POST"])
+# Search Page
+@app.route('/search', methods = ["GET", "POST"]) 
 def years():
     if request.method == 'POST':
         day = request.form.get('day')
@@ -24,6 +25,7 @@ def years():
     else:
         return render_template('search.html')
 
+# Graph page
 @app.route('/graph')
 def graph():
     
@@ -40,9 +42,13 @@ def graph():
             day = str(f'0{day}')
 
         file=str(f'{day}.{month}.{year}.csv')
-        file = openfile.openfile(file)
-    
-        return render_template('graph.html', day=day, month=month, year=year, file=file)
+        file = openfile.getvalues(file) # Alle values uit lijst halen (dag, jaar, maand, temperaturen, vochtigheidsgehalte) 
+        
+       
+        temperature = file[0]
+        humidity = file[1]
+
+        return render_template('graph.html', day=day, month=month, year=year, temperature=json.dumps(temperature), humidity=json.dumps(humidity)) # data doorgeven naar graph 
 
     except:
         return redirect(url_for('years'))

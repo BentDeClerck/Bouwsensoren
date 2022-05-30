@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,10 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+
     <div class="NavBar">
         <a href="/">About</a>
-        <div class="dropdown">
-            <button class="dropbtn">Search</button>
-            <div class="dropdown-content">
-                <a href="search">2021</a>
-                <a href="search">2022</a>
-            </div>
-        </div>
+        <a href="search">Search</a>
     </div>
     
     {% block content %}
