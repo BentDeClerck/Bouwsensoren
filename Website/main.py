@@ -1,7 +1,6 @@
 import flask  
 from flask import Flask, render_template, request, redirect, request
 from flask.helpers import url_for
-import tabulate
 import openfile
 import json
 

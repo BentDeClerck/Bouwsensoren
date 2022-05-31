@@ -13,7 +13,7 @@ def openfile(date):
         return(data)
 
     except:
-        return('file not found')
+        return('file not found') # wordt nog niet gedisplayed op het scherm, moet nog geïmplementeerd worden
 
 def sortfile(data):
     temperature.clear()
@@ -37,10 +37,16 @@ def sortfile(data):
     for i in range (len(humidity)):
         humidity[i] = int(humidity[i])
        
-    # data kan uitgebreid worden, gewoon for-loop bijplaatsen   
+    # data kan uitgebreid worden, gewoon for-loops bijplaatsen   
     return(temperature, humidity)
 
 def getvalues(date):
     print(sortfile(openfile(date)))
     return(sortfile(openfile(date)))
 
+"""
+
+Dit moet nog verder uitgewerkt worden met het lezen van subfolders.
+Ook kunnen er nog uitbreidingen gedaan worden door bv gemiddeldes te berekenen 
+
+"""
